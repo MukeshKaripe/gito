@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import MyComponent from './components/mycomponent';
+import { Box, CircularProgress } from '@mui/material';
+import AppRoutes from './routes/route';
 
-function App() {
+const App: React.FC = () => {
+  const [loader,setLoader] = useState(true);
+  useEffect(()=> { const timerCount = setTimeout(() => {
+      setLoader(false);
+  }, 100); 
+return ()=> {
+  clearTimeout(timerCount);
+  console.log(timerCount);
+  
+};
+},[]  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      {loader ? (  <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height="100vh"
         >
-          Learn React
-        </a>
-      </header>
+          <CircularProgress />
+        </Box>): (<AppRoutes />) }
     </div>
   );
-}
+};
 
 export default App;
