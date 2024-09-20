@@ -8,12 +8,12 @@ const Home = () => {
 
   const isTemplate = location.pathname.startsWith("/templates");
   return (
-    <Grid  sx={{ position:'relative' }}>
+    <Grid container  sx={{ position:'relative', width:'100%' }}>
      <Grid xs={12} sx={{position:'absolute',top:'0',left:'0',width:'120px'}}  >
       <MainSideBar></MainSideBar>
      </Grid>
       {/* <Typography variant="h4">Welcome to the Home Page!</Typography> */}
-   <Grid container sx={{marginLeft:'120px'}} >
+   <Grid  sx={{marginLeft:'120px' , width:'100%' }} >
     hello
    {isTemplate && <AllTemplates />}
    </Grid>

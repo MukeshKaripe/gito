@@ -691,7 +691,7 @@ const AllTemplates = () => {
                               No Data Found
                             </TableCell>
                           </TableRow>
-                        )
+                       
                       </TableBody>
                     
                   </Table>

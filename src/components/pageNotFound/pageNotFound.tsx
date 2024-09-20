@@ -8,6 +8,7 @@ const useStyles = makeStyles({
   container: {
     boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
     borderRadius: "15px",
+  
     // background: `url('../../assets/images/notfound.webp') no-repeat center center/cover`
     backgroundImage: `url("/images.jpg")`,
     //   backgroundImage:'url(../../assets/images/notfound.webp)'
@@ -17,6 +18,8 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    paddingBlock: "3%",
+    marginBlock: "4%",
   },
   button: {
     backgroundColor: `${bgColors.green}!important`,

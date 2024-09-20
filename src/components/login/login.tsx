@@ -99,52 +99,52 @@ const classes = useStyles();
     return true;
   };
 
-  //handle login submit
-  const handleLogin = () => {
-    const isEmailValid = validateEmail(credentials.email);
-    const isPasswordValid = validatePassword(credentials.password);
-    if (isEmailValid && isPasswordValid) {
-      let isValidUser = false;
+    //handle login submit
+    const handleLogin = () => {
+      const isEmailValid = validateEmail(credentials.email);
+      const isPasswordValid = validatePassword(credentials.password);
+      if (isEmailValid && isPasswordValid) {
+        let isValidUser = false;
 
-      try {
-        for (let index = 0; index < handleDataLogin.length; index++) {
-          const element = handleDataLogin[index];
-          // Dummy login validation
-          if (credentials.email !== '' && credentials.password !== '') {
+        try {
+          for (let index = 0; index < handleDataLogin.length; index++) {
+            const element = handleDataLogin[index];
+            // Dummy login validation
+            if (credentials.email !== '' && credentials.password !== '') {
 
-            if (credentials.email === element.email && credentials.password === element.password) {
-              setIsAuthenticated(true);
-              localStorage.setItem('isAuthenticated', 'true');
-              toast.success('Login successful!');
-              console.log(element.email, 'validated mail info');
+              if (credentials.email === element.email && credentials.password === element.password) {
+                setIsAuthenticated(true);
+                localStorage.setItem('isAuthenticated', 'true');
+                toast.success('Login successful!');
+                console.log(element.email, 'validated mail info');
 
-              navigate('/home');
-              isValidUser = true; // Set user as valid since a match is found
-              break; // No need to continue checking, exit the loop
+                navigate('/');
+                isValidUser = true; // Set user as valid since a match is found
+                break; // No need to continue checking, exit the loop
+              }
+              // else if (credentials.email != element.email && credentials.password != element.password) {
+              //   toast.error('Invalid email or password!');
+              // }
             }
-            // else if (credentials.email != element.email && credentials.password != element.password) {
-            //   toast.error('Invalid email or password!');
-            // }
-          }
+        
       
-     
+          }
+          if (!isValidUser) {
+            toast.error('Invalid email or password!');
+          }
+        } catch (error) {
+          console.error('Error during login:', error);
+          toast.error('An error occurred. Please try again.');
         }
-        if (!isValidUser) {
-          toast.error('Invalid email or password!');
-        }
-      } catch (error) {
-        console.error('Error during login:', error);
-        toast.error('An error occurred. Please try again.');
+    
+      } else {
+        // Show error if email or password is invalid format
+        toast.error('Invalid email or password!');
       }
-  
-    } else {
-      // Show error if email or password is invalid format
-      toast.error('Invalid email or password!');
-    }
-    
-    
+      
+      
 
-  };
+    };
 
   return (
     <Box className={classes.container} sx={{ width: '500px', margin: 'auto', textAlign: 'center' }}>

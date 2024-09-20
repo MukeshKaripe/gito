@@ -38,7 +38,7 @@ const MainSideBar = (props: any) => {
     navigate(path);
   };
   const handleTemplateClick = () => {
-    handleNavigation("templates/library") 
+    handleNavigation("/templates/library") 
   };
     return (
       <Grid
@@ -64,7 +64,7 @@ const MainSideBar = (props: any) => {
                 mb={{ xs: 0, md: 2.5 }}
                 mx={{ xs: 1.5, md: 0 }}
                 className={`${classes.cursorClass} ${
-                    location.pathname.includes("templates/library") &&
+                    location.pathname.includes("/templates/library") &&
                     !location.pathname.includes("/inbox-settings") &&
                     classes.selected
                   }`}
